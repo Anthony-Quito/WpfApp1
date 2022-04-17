@@ -22,8 +22,7 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        SqlConnection connection = new SqlConnection("Data Source=SQL5059.site4now.net; " +
-                                        "Initial Catalog=db_a6993a_test; Integrated Security=True");
+        SqlConnection connection = new SqlConnection(@"data source=SQL5059.site4now.net;initial catalog = db_a6993a_test;  User Id=db_a6993a_test_admin ; Password=Agosto2015.");
         public MainWindow()
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace WpfApp1
             List<Person> people = new List<Person>();
 
             connection.Open();
-            SqlCommand command = new SqlCommand("USP_GetPeople", connection);
+            SqlCommand command = new SqlCommand("BuscarPersonaNombre", connection);
             command.CommandType = System.Data.CommandType.StoredProcedure;
 
             SqlParameter parameter1 = new SqlParameter();
